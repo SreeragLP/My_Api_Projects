@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .wcontainer {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #009688;
+        }
+        .weather-info {
+            margin-top: 20px;
+        }
+        .weather-info p {
+            margin: 10px 0;
+        }
+        .weather-icon {
+            display: block;
+            margin: 0 auto;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+
+    <div class="wcontainer">
+        <h1>Weather in {{ selected_city }}</h1>
+         <div class="weather-info">
+            <p>Temperature: {{ temperature }} °C</p>
+            <p>Weather: {{ weather_description }}</p>
+            <p>Humidity: {{ humidity }}%</p>
+            <p>Wind Speed: {{ wind_speed }} m/s</p>
+            <p>Wind Direction: {{ wind_direction }}</p>
+            <p>Atmospheric Pressure: {{ pressure }} hPa</p>
+            <p>Visibility: {{ visibility }} meters</p>
+            <p>Sunrise Time: {{ sunrise_time }}</p>
+            <p>Sunset Time: {{ sunset_time }}</p>
+            <!-- Additional weather details can be added here -->
+        </div>
+
+    </div>
+</body>
+</html>
+
+{% endblock %}

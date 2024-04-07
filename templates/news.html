@@ -1,0 +1,68 @@
+<!-- news.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News</title>
+    <style>
+        .news-article {
+            max-width: 600px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .news-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .news-description {
+            color: #666;
+        }
+
+        .news-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .news-details {
+            margin-top: 10px;
+            color: #888;
+        }
+
+        .read-more-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Latest News</h1>
+    {% for article in articles %}
+        <div class="news-article">
+            <h2 class="news-title">{{ article.title }}</h2>
+            {% if article.urlToImage %}
+                <img src="{{ article.urlToImage }}" alt="News Image" class="news-image">
+            {% endif %}
+            <p class="news-description">{{ article.description }}</p>
+            <div class="news-details">
+                {% if article.author %}
+                    <p><strong>Author:</strong> {{ article.author }}</p>
+                {% endif %}
+
+                {% if article.source %}
+                    <p><strong>Source:</strong> {{ article.source.name }}</p>
+                {% endif %}
+            </div>
+            <p><a href="{{ article.url }}" target="_blank" class="read-more-link">Read more</a></p>
+        </div>
+    {% endfor %}
+</body>
+</html>

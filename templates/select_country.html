@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+    .center-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .form-container {
+        border: 2px solid #007bff;
+        border-radius: 10px;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+    }
+    form {
+        text-align: center;
+        margin-top: 20px;
+    }
+    label {
+        font-size: 18px;
+        margin-right: 10px;
+    }
+    select {
+        font-size: 16px;
+        padding: 8px;
+        border-radius: 5px;
+    }
+    button {
+        font-size: 16px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+
+
+
+<div class="container center-content">
+    <div class="form-container">
+        <h2><center>Welcome to News Portal</h2><br>
+
+        <form action="{% url 'news:view_news' %}" method="GET">
+            <label for="country">Select Country:</label>
+            <select name="selected_country" id="selected_country">
+                <option value="us">United States</option>
+                <option value="gb">United Kingdom</option>
+                <!-- Add more options for other countries as needed -->
+            </select>
+            <button type="submit">Show News</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
